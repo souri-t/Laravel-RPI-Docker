@@ -23,7 +23,7 @@ services:
     - php
 
   db:
-    image: hypriot/rpi-mysql
+    image: jsurf/rpi-mariadb
     container_name: db
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -31,7 +31,6 @@ services:
       MYSQL_USER: worker
       MYSQL_PASSWORD: worker
       TZ: 'Asia/Tokyo'
-    command: mysqld --character-set-server=utf8mb4 --collation-server=utf8mb4_unicode_ci
     volumes:
     - ./docker/db/data:/var/lib/mysql
     - ./docker/db/my.cnf:/etc/mysql/conf.d/my.cnf
